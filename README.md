@@ -4,3 +4,7 @@
 - '2021 Dev-Matching: 웹 프론트엔드 개발자(하반기)' 기출 문제
 - 바닐라 자바스크립트로 구현
 - [문제 링크](https://programmers.co.kr/skill_check_assignments/199)
+
+# 부족했던 것
+
+- [Promise.all과 map을 함께 사용하기](./study.md#promiseall과-map을-함께-사용하기)

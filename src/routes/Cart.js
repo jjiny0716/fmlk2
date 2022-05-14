@@ -51,20 +51,18 @@ export default class App extends Component {
       return;
     }
 
-    const cartItems = [];
-
-    for (let { productId, optionId, quantity } of items) {
+    const cartItems = await Promise.all(items.map(async ({ productId, optionId, quantity }) => {
       const { name: productName, price: defaultPrice, imageUrl, productOptions } = await productClient.getProductInfo(productId);
       const { name: optionName, price: optionPrice } = productOptions.find((option) => option.id === optionId);
 
-      cartItems.push({
+      return {
         imageUrl,
         productName,
         optionName,
         price: defaultPrice + optionPrice,
         quantity,
-      })
-    }
+      }
+    }))
 
     this.setState({ cartItems });
   }
